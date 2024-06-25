@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colorful Weather App</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <style>
+    body {
+      background: linear-gradient(to right, #6a11cb, #2575fc); /* Gradient background */
+      color: #ffffff; /* White text color for better contrast */
+      font-family: 'Arial', sans-serif;
+      height: 100vh; /* Full viewport height */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0; /* Remove default margin */
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 500px; /* Maximum width for container */
+    }
+
+    .navbar {
+      background-color: #007bff; /* Blue Navbar color */
+      margin-bottom: 30px; /* Space below the navbar */
+    }
+
+    .navbar-brand {
+      color: #ffffff; /* White text color for Navbar brand */
+    }
+
+    .form-control {
+      border-radius: 20px; /* Rounded input field */
+    }
+
+    .btn-primary {
+      background-color: #007bff; /* Blue button color */
+      border: none;
+      border-radius: 20px; /* Rounded button */
+      padding: 10px 20px; /* Button padding */
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3; /* Darker blue on hover */
+    }
+
+    .weather-data {
+      background-color: #007bff; /* Blue background for weather data */
+      padding: 15px;
+      border-radius: 10px;
+      color: #ffffff;
+      margin-top: 20px;
+    }
+
+    .weather-data h2 {
+      margin-top: 0;
+    }
+
+    .city-label {
+      background-color: #f0f0f0; /* Light gray background for the label box */
+      color: #000000; /* Black text color */
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+
+
+  <div class="container">
+    <h1 class="mb-4 text-primary">Weather App</h1>
+    <form method="post">
+      <div class="form-group">
+        <div class="city-label">Enter city name:</div>
+        <input type="text" class="form-control" id="city" name="city" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Get Weather</button>
+    </form>
+     
+    {% if weather_data %}
+      <div class="weather-data mt-4">
+        <h2>Weather in {{ weather_data['name'] }}, {{ weather_data['sys']['country'] }}:</h2>
+        <p>Description: {{ weather_data['weather'][0]['description'] }}</p>
+        <p>Temperature: {{ weather_data['main']['temp'] }}°C</p>
+        <p>Humidity: {{ weather_data['main']['humidity'] }}%</p>
+        <p>Wind Speed: {{ weather_data['wind']['speed'] }} m/s</p>
+      </div>
+    {% else %}
+      <p class="mt-4">Weather data unavailable.</p>
+    {% endif %}
+  </div>
+
+  <!-- Bootstrap JS and Popper.js -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>
