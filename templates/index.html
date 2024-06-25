@@ -7,7 +7,8 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <style>
     body {
-      background: linear-gradient(to right, #6a11cb, #2575fc); /* Gradient background */
+      background: url('https://example.com/mountains.jpg') no-repeat center center fixed; /* Replace with your mountain image URL */
+      background-size: cover; /* Cover the entire viewport */
       color: #ffffff; /* White text color for better contrast */
       font-family: 'Arial', sans-serif;
       height: 100vh; /* Full viewport height */
@@ -24,6 +25,7 @@
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
       width: 100%;
       max-width: 500px; /* Maximum width for container */
+      text-align: center; /* Center the text inside the container */
     }
 
     .navbar {
@@ -69,14 +71,23 @@
       border-radius: 5px;
       text-align: center;
       margin-bottom: 15px;
+      transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    }
+
+    .city-label:hover {
+      background-color: #e0e0e0; /* Slightly darker gray on hover */
+    }
+
+    .heading {
+      text-align: center;
     }
   </style>
 </head>
 <body>
-
+ 
 
   <div class="container">
-    <h1 class="mb-4 text-primary">Weather App</h1>
+    <h1 class="heading mb-4 text-primary">Weather App</h1>
     <form method="post">
       <div class="form-group">
         <div class="city-label">Enter city name:</div>
