@@ -52,7 +52,7 @@ env:
   PROJECT_ID: kube-projects-427711 # TODO: update Google Cloud project id
   GAR_LOCATION: us-central1 # TODO: update Artifact Registry location
   GAR_NAME: actions-run # TODO: update Artifact Registry name
-  SERVICE: weather_run # TODO: update Cloud Run service name
+  SERVICE: weather-run # TODO: update Cloud Run service name
   REGION: us-central1 # TODO: update Cloud Run service region
 
 jobs:
